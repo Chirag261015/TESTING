@@ -1,24 +1,14 @@
-Memory Management 	
-Memory Retrieval on Qdrant	Store memory items once in Qdrant using the shared embedding service, filtered by tenant and project, instead of re-embedding candidates in the app on every query (retrieval.py). Also replace the query-expansion placeholder.
-Token-aware Context Budget	Replace the 32k-character compaction cap with token counting per model, and split the budget across system prompt, memory, retrieved chunks and history.
-Conversation Compaction	Summarise older turns in layers instead of cutting them, keep decisions and facts word for word, and measure compaction quality in the evaluation harness.
-S1	Conversation Summary Update to JSON file and Database table when conversation Ideal for 2 mins,when session end or system abnormal terminate,when process completed
-S2	Replace existing history summary of 10 messages to 6 messages
-S3	Save summary of 6 messages and rolling conversation in conversation summary field instead of history summary field
-S4	Save summary of 6 messages and rolling conversation of conversation summary field to database table
-	Testing to be done for S3, S4 and whole integrated process
-	Create a variable that takes the number of messages to be summarized
-Testing 	Resolve Conversation Crash REPORT
-Persistent Memory Types	Split memory items into facts, events, preferences and playbooks, each with its own retention and retrieval priority.
-	1. Semantic Memory- Client Facts, Decisions
-	2. Episodic Memory- Past Run Events, Outcomes
-	3. Preference Memory- User and Organisation Preferences
-	4. Procedural Memory- Playbooks, What Worked Before
-Memory Write Pipeline	At the end of a run, extract candidate memories, remove duplicates, merge with existing items, resolve conflicts, and keep human approval for batch adds.
-Memory Lifecycle & Consent	Scheduled purge for the 30-day retention setting, expiry of stale facts, a "forget" option per user and project (DPDP), and a decision on memory_enforce_consent_ledger for production.
-Memory Scope & Isolation	Define what a user, a project and the organisation can see, with tests that one tenant cannot read another tenant's memory.
-Cache - Production Settings	Set CACHE_ALLOW_MEMORY_FALLBACK=false in staging and production, add a Redis health check, memory limit and allkeys-lru eviction.
-Cache - Keys, TTL & Invalidation	Key format tenant:project:type:version, a TTL for each cached item (embeddings, retrieval results, tool results, previews), and cache clearing when ingestion changes a document.
-LLM Prompt Caching	Cache large stable blocks (Leading Practice context, tool definitions, project profile), not only the system prompt; show the hit rate and savings in OpenObserve.
-Run State & File Storage	Checkpoints on Postgres with retention for finished runs, workspace files and uploads on S3 with per-tenant folders, sessions and queue state only in Redis.
-Memory Observability	Log which memories were used in each answer, so a person can see why the agent remembered something and correct it.
+				Current platform	Snowflake	Databrics
+Themes	Components	Name of services	Build stage			
+						
+Architecture 						
+	Deterministic Rules					
+	Agentic System 					
+Services 						
+Scalability 						
+Latency & Concurrency 						
+Cost 						
+Computing Cost 						
+Model Garden 						
+Security 						
+Governance 						
