@@ -1,0 +1,23 @@
+Dear Surendra,
+
+Thank you for your time and discussion today. As discussed, please find below a brief summary of the key discussion points and the corresponding next steps:
+
+1. Copilot Integration with Connect P2P
+We understand that the proposed solution is technically feasible; however, token consumption and API integration requirements will be key considerations in assessing its viability.
+Request your support in sharing the following:
+•	Estimated token consumption per invoice validation transaction and the associated cost (high-level estimates would suffice) to help us develop an initial business case and take a Go/No-Go decision.
+•	Details of the two proposed approaches for integrating Copilot with Connect P2P, covering the high-level architecture, configuration requirements, key dependencies, and potential implementation challenges for each approach.
+
+2. Copilot-Enabled Query Management
+We understand that the proposed solution is feasible and may require approximately 8–10 weeks for implementation. As requested, we have shared the business case for your further evaluation.
+Request your support in sharing the following:
+•	High-level solution approach and architecture.
+•	Key implementation considerations, dependencies, and prerequisites.
+•	Cost involved
+
+3. End-to-End Reporting & Analytics
+We understand that a Copilot-based reporting solution may involve considerations around hosting, licensing, and token consumption. Based on your recommendation, we will evaluate a Power BI-led approach for reporting and dashboards. We will reach out to you for technical guidance and support on the associated integrations, Power Apps, and automation enablement requirements.
+
+Thank you once again for your support. We look forward to your inputs on the above to help take these initiatives forward.
+
+Looking forward to your guidance and inputs.
