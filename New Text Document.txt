@@ -1,0 +1,11 @@
+Attached is run-failure-fixes-2026-11-20.md with the three code changes for Priyanka and Chirag to apply to their copies of Advise Workbench (dev-master). The file has the exact diffs, the reason for each, and how to test.
+
+In short:
+
+1. "consuming input failed: server closed the connection unexpectedly" - src/workflows/checkpoint.py. The LangGraph checkpoint pool has no keepalives, so its idle connection is dropped during the 10-35 minute generation and the checkpoint write after it fails. 8 runs failed this way on 19-20 Nov. Fix: keepalives plus a connection check on the pool. Not yet applied or tested anywhere.
+
+2. "Generation was interrupted by a server restart" - src/workflows/orchestrator.py plus one test. Any backend restart failed runs waiting in design review. Applied and tested on the shared server.
+
+3. "Failed to export metrics batch due to timeout" - src/core/observability/otel_tracing.py. Metrics timeout raised from 5 to 10 seconds. Applied on the shared server.
+
+Note: saving files under src/ while run_agent is running stops the whole app (uvicorn --reload sends Ctrl+C to the console), so make the edits and then restart with scripts\run_agent.cmd.
